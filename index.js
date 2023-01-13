@@ -1,5 +1,7 @@
 import './style.css';
 
+const employeeList = document.querySelector('.employees');
+
 const Factory = function () {
   this.createEmployee = function (name, type) {
     let employee = null;
@@ -29,9 +31,9 @@ const Factory = function () {
     employee.type = type;
 
     employee.say = function () {
-      console.log(
-        `I am employee ${this.name}. ${this.type}: rate ${this.hourly}/hour`
-      );
+      const employeeElement = document.createElement('li');
+      employeeElement.textContent = `I am employee ${this.name}. ${this.type}: rate ${this.hourly}/hour`;
+      employeeList.append(employeeElement);
     };
 
     return employee;
